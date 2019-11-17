@@ -1,3 +1,44 @@
-<div class="container">
-  <p>weekly-view works!</p>
+<div class="row">
+  <div class="col title">
+    Weekly Time Calculator
+  </div>
+</div>
+<!-- <div class="row">
+  <div class="col dayPicker">
+    <span>Start of the Week Day: </span>
+    <p>
+      SELECT BOX HEREK
+    </p>
+  </div>
+</div> -->
+<div class="row">
+  <div class="col">
+
+    <app-day *ngFor="let day of daysOfTheWeek; let i = index" [day]="day" [daysOfTheWeek]="daysOfTheWeek"
+      (dayEvent)="emitDay($event)" [hundrs]="hundrs">
+    </app-day>
+
+    <div class="row justify-content-end"
+      *ngIf="!!totalState.totalDifferenceOfMinutes && totalState.totalDifferenceOfMinutes > 0">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Total Hours & Minutes</th>
+              <th scope="col">Total Decimal</th>
+              <th scope="col">Total Lunch Minutes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{totalState.totalAMorPMCalculated}}</td>
+              <td>{{totalState.totalDecimalCalculated}}</td>
+              <td>{{totalState.totalLunch}}<span *ngIf="!!totalState.totalLunch && totalState.totalLunch > 0"> MIN
+                  LUNCH</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
