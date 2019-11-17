@@ -40,7 +40,7 @@
             <span class="input-group-prepend input-group-text">Ending Time: </span>
 
             <select class="form-control" id="{{day.text + day.id + 'endHour'}}" formControlName="endHour">
-              <option *ngFor="let num of numberOfHours" value="{{num}}">{{num}}</option>
+              <option *ngFor="let num of numberOfHours" value="{{num + 1}}">{{num + 1}}</option>
             </select>
 
             <select class="form-control" id="{{day.text + day.id + 'endMinute'}}" formControlName="endMinute">
