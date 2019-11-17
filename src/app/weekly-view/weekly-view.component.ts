@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { DailyState } from './models/DailyState';
 import { TotalState } from './models/TotalState';
 
@@ -9,7 +8,6 @@ import { TotalState } from './models/TotalState';
   styleUrls: ['./weekly-view.component.scss']
 })
 export class WeeklyViewComponent implements OnInit {
-  weeklyForm: FormGroup;
   totalState: TotalState = {
     totalDifferenceOfMinutes: 0,
     totalAMorPMCalculated: '',
@@ -111,7 +109,7 @@ export class WeeklyViewComponent implements OnInit {
     59: '98',
     60: '00'
  };
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
   }
