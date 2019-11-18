@@ -5,14 +5,14 @@
 
       <div class="row">
         <!-- Day of the Week -->
-        <div class="col col-lg-4">
-          <select class="form-control" id="{{day.text + day.id}}" formControlName="dayOfWeek">
+        <div class="col col-lg-2">
+          <select class="form-control" id="{{day.text + day.id}}" formControlName="dayOfWeek" tabindex="-1">
             <option *ngFor="let x of daysOfTheWeek" value="{{x.text}}">{{capitolize(x.text)}}</option>
           </select>
         </div>
 
         <!-- Start Time Group -->
-        <div class="form-group col col-lg-4">
+        <div class="form-group col col-lg-5">
           <div class="input-group">
 
             <span class="input-group-prepend input-group-text">Starting Time: </span>
@@ -34,7 +34,7 @@
         </div>
 
         <!-- End Time Group -->
-        <div class="form-group col col-lg-4">
+        <div class="form-group col col-lg-5">
           <div class="input-group">
 
             <span class="input-group-prepend input-group-text">Ending Time: </span>
@@ -60,7 +60,7 @@
 
       <div class="row justify-content-end">
         <!-- Final Time Group -->
-        <div class="form-group col col-lg-8">
+        <div class="form-group col col-lg-10">
 
           <table class="table" *ngIf="!!dailyState.finalAMorPMCalculated">
             <thead>

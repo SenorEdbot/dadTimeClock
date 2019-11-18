@@ -13,7 +13,6 @@ export class DayComponent implements OnInit {
   @Input() daysOfTheWeek: any;
   @Input() hundrs: any;
   @Output() dayEvent = new EventEmitter();
-  ap: string[] = ['AM', 'PM'];
   dailyState: DailyState = {
     dayOfWeek: null,
     finalDifferenceOfMinutes: null,

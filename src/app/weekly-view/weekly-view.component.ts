@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { DailyState } from './models/DailyState';
 import { TotalState } from './models/TotalState';
+import { nextTick } from 'q';
+import { DayComponent } from './day/day.component';
 
 @Component({
   selector: 'app-weekly-view',
@@ -19,31 +21,31 @@ export class WeeklyViewComponent implements OnInit {
   daysOfTheWeek = [
     {
       id: 1,
-      text: 'sunday'
-    },
-    {
-      id: 2,
       text: 'monday'
     },
     {
-      id: 3,
+      id: 2,
       text: 'tuesday'
     },
     {
-      id: 4,
+      id: 3,
       text: 'wednesday'
     },
     {
-      id: 5,
+      id: 4,
       text: 'thursday'
     },
     {
-      id: 6,
+      id: 5,
       text: 'friday'
     },
     {
-      id: 7,
+      id: 6,
       text: 'saturday'
+    },
+    {
+      id: 7,
+      text: 'sunday'
     }
   ];
   hundrs: any = {
@@ -109,10 +111,10 @@ export class WeeklyViewComponent implements OnInit {
     59: '98',
     60: '00'
  };
+@ViewChildren('dayComponent') dayComponentList: QueryList<DayComponent>;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   emitDay(event: DailyState) {
     if (this.weeklyState === undefined || this.weeklyState.length === 0) {
@@ -125,9 +127,8 @@ export class WeeklyViewComponent implements OnInit {
         this.weeklyState.push(event);
       }
     }
-    console.log(this.weeklyState);
-
     this.resetState();
+
     this.weeklyState.forEach((day, i) => {
       this.totalState.totalDifferenceOfMinutes += day.finalDifferenceOfMinutes;
       this.totalState.totalLunch += day.finalLunch;
@@ -137,8 +138,6 @@ export class WeeklyViewComponent implements OnInit {
     const finalMinutes = this.totalState.totalDifferenceOfMinutes % 60;
     this.totalState.totalAMorPMCalculated = finalHours + ' HR ' + finalMinutes + ' MIN';
     this.totalState.totalDecimalCalculated = parseFloat(finalHours + '.' + this.hundrs[finalMinutes]);
-
-    console.log(this.totalState);
   }
 
   resetState(): void {
@@ -149,7 +148,7 @@ export class WeeklyViewComponent implements OnInit {
     this.totalState.totalDecimalCalculatedTest = 0;
   }
 
-  checkArray(arrToCheck, valToCheck) {
+  checkArray(arrToCheck: DailyState[], valToCheck: string) {
     let status = false;
     let index = null;
     arrToCheck.forEach((el, i) => {
@@ -158,4 +157,26 @@ export class WeeklyViewComponent implements OnInit {
     return { status, index };
   }
 
+  resetChildrenForms() {
+    this.dayComponentList.forEach(el => {
+      el.dayForm.reset({
+        dayOfWeek: el.day.text,
+        startHour: null,
+        startMinute: null,
+        startAMorPM: '',
+        endHour: null,
+        endMinute: null,
+        endAMorPM: '',
+      });
+      el.dailyState = {
+        dayOfWeek: el.day.text,
+        finalDifferenceOfMinutes: 0,
+        finalAMorPMCalculated: '',
+        finalDecimalCalculated: 0,
+        finalLunch: 0,
+        finalLunchBool: false
+      };
+    });
+    this.resetState();
+  }
 }

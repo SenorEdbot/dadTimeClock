@@ -15,12 +15,12 @@
   <div class="col">
 
     <app-day *ngFor="let day of daysOfTheWeek; let i = index" [day]="day" [daysOfTheWeek]="daysOfTheWeek"
-      (dayEvent)="emitDay($event)" [hundrs]="hundrs">
+      (dayEvent)="emitDay($event)" [hundrs]="hundrs" #dayComponent>
     </app-day>
 
-    <div class="row justify-content-end"
-      *ngIf="!!totalState.totalDifferenceOfMinutes && totalState.totalDifferenceOfMinutes > 0">
+    <div class="row" *ngIf="!!totalState.totalDifferenceOfMinutes && totalState.totalDifferenceOfMinutes > 0">
       <div class="col">
+
         <table class="table">
           <thead>
             <tr>
@@ -38,7 +38,15 @@
             </tr>
           </tbody>
         </table>
+
       </div>
     </div>
+
+    <div class="row">
+      <div class="col">
+        <button (click)="resetChildrenForms()" type="button" class="btn btn-warning float-right">Reset</button>
+      </div>
+    </div>
+
   </div>
 </div>
