@@ -3,6 +3,8 @@
   margin-bottom: 1rem;
 }
 
-.reset {
-  padding-right: 7rem;
+@media (min-width: 576px) {
+  .reset {
+    padding-right: 7rem;
+  }
 }

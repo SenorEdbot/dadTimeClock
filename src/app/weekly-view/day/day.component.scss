@@ -18,3 +18,9 @@
 #startAMorPM {
   width: 5px;
 }
+
+@media (min-width: 576px) {
+  .final-calc-table {
+    padding-right: 7rem;
+  }
+}
