@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: 'overview',
     component: OverviewComponent
+  },
+  {
+    path: '**',
+    component: WeeklyViewComponent
   }
 ];
 

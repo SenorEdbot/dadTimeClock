@@ -21,31 +21,38 @@ export class WeeklyViewComponent implements OnInit {
   daysOfTheWeek = [
     {
       id: 1,
-      text: 'monday'
+      text: 'monday',
+      shortText: 'MON'
     },
     {
       id: 2,
-      text: 'tuesday'
+      text: 'tuesday',
+      shortText: 'TUE'
     },
     {
       id: 3,
-      text: 'wednesday'
+      text: 'wednesday',
+      shortText: 'WED'
     },
     {
       id: 4,
-      text: 'thursday'
+      text: 'thursday',
+      shortText: 'THUR'
     },
     {
       id: 5,
-      text: 'friday'
+      text: 'friday',
+      shortText: 'FRI'
     },
     {
       id: 6,
-      text: 'saturday'
+      text: 'saturday',
+      shortText: 'SAT'
     },
     {
       id: 7,
-      text: 'sunday'
+      text: 'sunday',
+      shortText: 'SUN'
     }
   ];
   hundrs: any = {
@@ -179,4 +186,5 @@ export class WeeklyViewComponent implements OnInit {
     });
     this.resetState();
   }
+
 }

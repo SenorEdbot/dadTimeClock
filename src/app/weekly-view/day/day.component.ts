@@ -21,13 +21,15 @@ export class DayComponent implements OnInit {
     finalLunch: null,
     finalLunchBool: null
   };
-  numberOfMinutes: number[] = Array(61).fill(0).map((x, i) => i);
-  numberOfHours: number[] = Array(12).fill(0).map((x, i) => i);
+  numberOfMinutes: number[] = [];
+  numberOfHours: number[] = [];
   dayForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.numberOfMinutes = [...Array(61).keys()];
+    this.numberOfHours = [...Array(12).keys()];
     this.dayForm = this.fb.group({
       dayOfWeek: this.day.text,
       startHour: null,
@@ -37,6 +39,7 @@ export class DayComponent implements OnInit {
       endMinute: null,
       endAMorPM: '',
     });
+    console.log(this.numberOfMinutes);
 
     this.onChanges();
   }

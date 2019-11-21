@@ -5,10 +5,11 @@
 
       <div class="row">
         <!-- Day of the Week -->
-        <div class="col col-lg-2">
-          <select class="form-control" id="{{day.text + day.id}}" formControlName="dayOfWeek" tabindex="-1">
+        <div class="col col-lg-1">
+          <h5>{{day.shortText}}</h5>
+          <!-- <select class="form-control" id="formControlNameayOfWeek" tabindex="-1">
             <option *ngFor="let x of daysOfTheWeek" value="{{x.text}}">{{capitolize(x.text)}}</option>
-          </select>
+          </select> -->
         </div>
 
         <!-- Start Time Group -->
@@ -17,15 +18,19 @@
 
             <span class="input-group-prepend input-group-text">Starting Time: </span>
 
-            <select class="form-control" id="{{day.text + day.id + 'startHour'}}" formControlName="startHour">
-              <option *ngFor="let num of numberOfHours" value="{{num + 1}}">{{num + 1}}</option>
+            <select class="form-control" id="startHour" formControlName="startHour">
+              <option *ngFor="let num of numberOfHours" value="{{num + 1}}">
+                {{num < 9 ? '0'+ (num + 1).toString() : (num + 1)}}
+              </option>
             </select>
 
-            <select class="form-control" id="{{day.text + day.id + 'startMinute'}}" formControlName="startMinute">
-              <option *ngFor="let num of numberOfMinutes" value="{{num}}">{{num}}</option>
+            <select class="form-control" id="startMinute" formControlName="startMinute">
+              <option *ngFor="let num2 of numberOfMinutes" value="{{num2}}">
+                {{num2 < 10 ? '0' + (num2).toString() : (num2)}}
+              </option>
             </select>
 
-            <select class="form-control" id="{{day.text + day.id + 'startAMorPM'}}" formControlName="startAMorPM">
+            <select class="form-control" id="startAMorPM" formControlName="startAMorPM">
               <option value="AM">AM</option>
               <option value="PM">PM</option>
             </select>
@@ -39,15 +44,19 @@
 
             <span class="input-group-prepend input-group-text">Ending Time: </span>
 
-            <select class="form-control" id="{{day.text + day.id + 'endHour'}}" formControlName="endHour">
-              <option *ngFor="let num of numberOfHours" value="{{num + 1}}">{{num + 1}}</option>
+            <select class="form-control" id="endHour" formControlName="endHour">
+              <option *ngFor="let num of numberOfHours" value="{{num + 1}}">
+                {{num < 9 ? '0'+ (num + 1).toString() : (num + 1)}}
+              </option>
             </select>
 
-            <select class="form-control" id="{{day.text + day.id + 'endMinute'}}" formControlName="endMinute">
-              <option *ngFor="let num of numberOfMinutes" value="{{num}}">{{num}}</option>
+            <select class="form-control" id="endMinute" formControlName="endMinute">
+              <option *ngFor="let num of numberOfMinutes" value="{{num}}">
+                {{num < 10 ? '0' + (num).toString() : (num)}}
+              </option>
             </select>
 
-            <select class="form-control" id="{{day.text + day.id + 'endAMorPM'}}" formControlName="endAMorPM">
+            <select class="form-control" id="endAMorPM" formControlName="endAMorPM">
               <option value="AM">AM</option>
               <option value="PM">PM</option>
             </select>
