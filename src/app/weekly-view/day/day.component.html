@@ -17,13 +17,13 @@
 
             <select class="form-control" id="startHour" formControlName="startHour">
               <option *ngFor="let num of numberOfHours" value="{{num + 1}}">
-                {{num < 9 ? '0'+ (num + 1).toString() : (num + 1)}}
+                {{(num < 10 ? '0' : '') + num}}
               </option>
             </select>
 
             <select class="form-control" id="startMinute" formControlName="startMinute">
-              <option *ngFor="let num2 of numberOfMinutes" value="{{num2}}">
-                {{num2 < 10 ? '0' + (num2).toString() : (num2)}}
+              <option *ngFor="let num of numberOfMinutes" value="{{num}}">
+                {{(num < 10 ? '0' : '') + num}}
               </option>
             </select>
 
@@ -43,13 +43,13 @@
 
             <select class="form-control" id="endHour" formControlName="endHour">
               <option *ngFor="let num of numberOfHours" value="{{num + 1}}">
-                {{num < 9 ? '0'+ (num + 1).toString() : (num + 1)}}
+                {{(num < 10 ? '0' : '') + num}}
               </option>
             </select>
 
             <select class="form-control" id="endMinute" formControlName="endMinute">
               <option *ngFor="let num of numberOfMinutes" value="{{num}}">
-                {{num < 10 ? '0' + (num).toString() : (num)}}
+                {{(num < 10 ? '0' : '') + num}}
               </option>
             </select>
 
