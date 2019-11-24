@@ -39,7 +39,6 @@ export class DayComponent implements OnInit {
       endMinute: null,
       endAMorPM: '',
     });
-    console.log(this.numberOfMinutes);
 
     this.onChanges();
   }
