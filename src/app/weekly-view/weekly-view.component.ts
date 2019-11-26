@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { DailyState } from './models/DailyState';
 import { TotalState } from './models/TotalState';
-import { nextTick } from 'q';
 import { DayComponent } from './day/day.component';
 
 @Component({
@@ -118,7 +117,7 @@ export class WeeklyViewComponent implements OnInit {
     59: '98',
     60: '00'
  };
-@ViewChildren('dayComponent') dayComponentList: QueryList<DayComponent>;
+  @ViewChildren('dayComponent') dayComponentList: QueryList<DayComponent>;
   constructor() { }
 
   ngOnInit() { }

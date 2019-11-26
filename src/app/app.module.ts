@@ -8,13 +8,15 @@ import { OverviewComponent } from './overview/overview.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DayComponent } from './weekly-view/day/day.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeeklyViewComponent,
     OverviewComponent,
-    DayComponent
+    DayComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
