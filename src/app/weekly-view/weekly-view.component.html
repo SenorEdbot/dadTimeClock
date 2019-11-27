@@ -27,6 +27,7 @@
               <th scope="col">Total Hours & Minutes</th>
               <th scope="col">Total Decimal</th>
               <th scope="col">Total Lunch Minutes</th>
+              <th scope="col">Bonus Time (h/m)</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +36,7 @@
               <td>{{totalState.totalDecimalCalculated}}</td>
               <td>{{totalState.totalLunch}}<span *ngIf="!!totalState.totalLunch && totalState.totalLunch > 0"> MIN
                   LUNCH</span></td>
+              <td>{{totalState.totalBonusTimeHM}}</td>
             </tr>
           </tbody>
         </table>

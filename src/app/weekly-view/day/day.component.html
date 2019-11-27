@@ -74,6 +74,7 @@
                 <th scope="col">Hours & Minutes</th>
                 <th scope="col">Decimal</th>
                 <th scope="col">Lunch Minutes</th>
+                <th scope="col">Bonus Time (h/m)</th>
               </tr>
             </thead>
             <tbody>
@@ -81,6 +82,7 @@
                 <td>{{dailyState.finalAMorPMCalculated}}</td>
                 <td>{{dailyState.finalDecimalCalculated}}</td>
                 <td>{{dailyState.finalLunch}}<span *ngIf="!!dailyState.finalLunch"> MIN LUNCH</span></td>
+                <td>{{dailyState.finalBonusTimeHM}}</td>
               </tr>
             </tbody>
           </table>

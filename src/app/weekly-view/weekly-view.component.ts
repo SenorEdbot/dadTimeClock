@@ -14,7 +14,9 @@ export class WeeklyViewComponent implements OnInit {
     totalAMorPMCalculated: '',
     totalDecimalCalculated: 0,
     totalDecimalCalculatedTest: 0,
-    totalLunch: 0
+    totalLunch: 0,
+    totalBonusTimeHM: '',
+    totalBonusTime: 0
   };
   weeklyState: DailyState[] = [];
   daysOfTheWeek = [
@@ -139,11 +141,15 @@ export class WeeklyViewComponent implements OnInit {
       this.totalState.totalDifferenceOfMinutes += day.finalDifferenceOfMinutes;
       this.totalState.totalLunch += day.finalLunch;
       this.totalState.totalDecimalCalculatedTest += day.finalDecimalCalculated;
+      this.totalState.totalBonusTime += day.finalBonusTime;
     });
     const finalHours = Math.floor(this.totalState.totalDifferenceOfMinutes / 60);
     const finalMinutes = this.totalState.totalDifferenceOfMinutes % 60;
+    const finalBonusHours = Math.floor(this.totalState.totalBonusTime / 60);
+    const finalBonusMinutes = this.totalState.totalBonusTime % 60;
     this.totalState.totalAMorPMCalculated = finalHours + ' HR ' + finalMinutes + ' MIN';
     this.totalState.totalDecimalCalculated = parseFloat(finalHours + '.' + this.hundrs[finalMinutes]);
+    this.totalState.totalBonusTimeHM = finalBonusHours + ' HR ' + finalBonusMinutes + ' MIN';
   }
 
   resetState(): void {
@@ -152,6 +158,8 @@ export class WeeklyViewComponent implements OnInit {
     this.totalState.totalDecimalCalculated = 0;
     this.totalState.totalAMorPMCalculated = '';
     this.totalState.totalDecimalCalculatedTest = 0;
+    this.totalState.totalBonusTimeHM = '';
+    this.totalState.totalBonusTime = 0;
   }
 
   checkArray(arrToCheck: DailyState[], valToCheck: string) {
@@ -180,7 +188,9 @@ export class WeeklyViewComponent implements OnInit {
         finalAMorPMCalculated: '',
         finalDecimalCalculated: 0,
         finalLunch: 0,
-        finalLunchBool: false
+        finalLunchBool: false,
+        finalBonusTime: 0,
+        finalBonusTimeHM: ''
       };
     });
     this.resetState();

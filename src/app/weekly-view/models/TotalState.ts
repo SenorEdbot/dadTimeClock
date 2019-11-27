@@ -4,4 +4,6 @@ export interface TotalState {
   totalDecimalCalculated: number;
   totalDecimalCalculatedTest: number;
   totalLunch: number;
+  totalBonusTimeHM: string;
+  totalBonusTime: number;
 }

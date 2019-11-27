@@ -5,4 +5,6 @@ export interface DailyState {
   finalDecimalCalculated: number;
   finalLunch: number;
   finalLunchBool: boolean;
+  finalBonusTimeHM: string;
+  finalBonusTime: number;
 }

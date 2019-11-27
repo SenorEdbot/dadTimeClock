@@ -19,7 +19,9 @@ export class DayComponent implements OnInit {
     finalAMorPMCalculated: null,
     finalDecimalCalculated: null,
     finalLunch: null,
-    finalLunchBool: null
+    finalLunchBool: null,
+    finalBonusTimeHM: null,
+    finalBonusTime: null
   };
   numberOfMinutes: number[] = [];
   numberOfHours: number[] = [];
@@ -55,6 +57,23 @@ export class DayComponent implements OnInit {
 
         const combinedStartMinutes: number = (parseInt(val.startHour) * 60) + parseInt(val.startMinute);
         const combinedEndMinutes: number = (parseInt(val.endHour) * 60) + parseInt(val.endMinute);
+
+        if (combinedStartMinutes < 360) {
+          let finalHrBonus;
+          let finalMinBonus;
+          if (combinedEndMinutes < 360) {
+            this.dailyState.finalBonusTime = combinedEndMinutes - combinedStartMinutes;
+            finalHrBonus = Math.floor((combinedEndMinutes - combinedStartMinutes) / 60);
+            finalMinBonus = (combinedEndMinutes - combinedStartMinutes) % 60;
+            this.dailyState.finalBonusTimeHM = `${finalHrBonus} HR ${finalMinBonus} MIN`;
+          } else {
+            this.dailyState.finalBonusTime = 360 - combinedStartMinutes;
+            finalHrBonus = Math.floor((360 - combinedStartMinutes) / 60);
+            finalMinBonus = (360 - combinedStartMinutes) % 60;
+            this.dailyState.finalBonusTimeHM = `${finalHrBonus} HR ${finalMinBonus} MIN`;
+          }
+        }
+
         let differenceOfMinutes = combinedEndMinutes - combinedStartMinutes;
         if ( Math.floor(differenceOfMinutes / 60) >= 8) {
           this.dailyState.finalLunchBool = true;
