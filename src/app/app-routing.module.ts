@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WeeklyViewComponent } from './weekly-view/weekly-view.component';
-import { OverviewComponent } from './overview/overview.component';
+import { WeeklyViewComponent } from './components/weekly-view/weekly-view.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'overview',
     component: OverviewComponent
+  },
+  {
+    path: 'employee/add',
+    component: AddEmployeeComponent
   },
   {
     path: '**',
