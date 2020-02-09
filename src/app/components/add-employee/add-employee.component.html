@@ -1,0 +1,35 @@
+<h2>Add New Employee</h2>
+<form [formGroup]="newEmpForm" class="add-employee-form">
+
+  <div class="form-row justify-content-md-center mb-2 name-row">
+
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="First name" formControlName="firstName">
+    </div>
+
+    <div class="col-lg-2">
+      <input type="text" class="form-control" placeholder="Middle initial" formControlName="middleInitial">
+    </div>
+
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Last name" formControlName="lastName">
+    </div>
+
+  </div>
+
+  <div class="form-group row justify-content-md-center">
+    <label for="generalStartHour" class="col-sm-2 col-form-label mr-0 pr-0">General Start Hour:</label>
+    <div class="col-sm-2 col-lg-2 ml-0 pl-0">
+      <select class="form-control" id="generalStartHour" formControlName="generalStartHour">
+        <option *ngFor=" let num of numberOfHours" value="{{num + 1}}">
+          {{((num + 1) < 10 ? '0' : '') + (num + 1)}}
+        </option>
+      </select>
+    </div>
+
+    <button class="btn btn-success" (click)="saveEmployee()">
+      Save Employee
+    </button>
+  </div>
+
+</form>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-lg-10 selectEmployee">
+    <form [formGroup]="selectEmpForm" class="form-inline">
+      <label class="my-1 mr-2 select-emp-label" for="selectEmpSelect">Select Employee:</label>
+      <select class="custom-select my-1 mr-sm-2 col-lg-4" id="selectEmpSelect" formControlName="selectedEmployeeFname">
+        <option selected disabled>Choose...</option>
+        <option *ngFor="let employee of (employees$ | async)" value="employee.firstName">{{employee.firstName}}</option>
+      </select>
+    </form>
+  </div>
+  <div class="col-lg-2">
+    <button class="btn btn-info" (click)="toggleAddEmployee()">
+      {{!!displayAddEmp ? 'Close' : 'Add Employee'}}
+    </button>
+  </div>
+</div>
+
+<app-add-employee *ngIf="!!displayAddEmp" #addEmployee (saveEmployeeEvent)="saveNewEmployee($event)">
+</app-add-employee>
